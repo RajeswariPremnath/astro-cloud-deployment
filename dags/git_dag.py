@@ -14,7 +14,7 @@ with DAG(
 'git_deployment_example',
 default_args=default_args,
 description='A simple DAG deployed via GitHub integration',
-schedule_interval='@daily',
+schedule='@daily',
 start_date=pendulum.datetime(2023, 1, 1, tz="UTC"),
 catchup=False,
 ) as dag:
