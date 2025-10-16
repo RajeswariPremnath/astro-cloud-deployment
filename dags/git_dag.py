@@ -1,7 +1,8 @@
+import pendulum
 from airflow import DAG
-
+from datetime import timedelta
 from airflow.operators.bash import BashOperator
-from airflow.utils.dates import days_ago
+
 
 default_args = {
 'owner': 'airflow',
@@ -14,7 +15,7 @@ with DAG(
 default_args=default_args,
 description='A simple DAG deployed via GitHub integration',
 schedule_interval='@daily',
-start_date=days_ago(1),
+start_date=pendulum.datetime(2023, 1, 1, tz="UTC"),
 catchup=False,
 ) as dag:
 
