@@ -16,7 +16,7 @@ with DAG(
 'create_drop_postgres_table',
 default_args=default_args,
 description='A simple DAG to create and drop PostgreSQL table',
-schedule_interval=None, # Trigger manually or set cron schedule
+schedule=None, # Trigger manually or set cron schedule
 
 start_date=pendulum.datetime(2023, 1, 1, tz="UTC"),
 catchup=False,
