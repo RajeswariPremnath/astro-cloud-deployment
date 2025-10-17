@@ -1,6 +1,7 @@
 from airflow import DAG
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
-from airflow.utils.dates import timedelta
+from datetime import timedelta
+
 import pendulum
 
 # Define the default arguments for the DAG
