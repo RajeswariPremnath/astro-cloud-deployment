@@ -1,5 +1,5 @@
 from airflow import DAG
-from airflow.providers.postgres.operators.postgres import PostgresOperator
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.utils.dates import days_ago
 from airflow.utils.dates import timedelta
 
@@ -34,17 +34,17 @@ catchup=False,
     drop_table_sql = "DROP TABLE IF EXISTS test_table;"
 
     # Task to create the table
-    create_table = PostgresOperator(
+    create_table = SQLExecuteQueryOperator(
     task_id='create_table',
-    postgres_conn_id='postgress_render', # Connection ID set in Airflow UI
+    conn_id='postgress_render', # Connection ID set in Airflow UI
     sql=create_table_sql,
     )
 
     # Task to drop the table
 
-    drop_table = PostgresOperator(
+    drop_table = SQLExecuteQueryOperator(
     task_id='drop_table',
-    postgres_conn_id='postgress_render', # Connection ID set in Airflow UI
+    conn_id='postgress_render', # Connection ID set in Airflow UI
     sql=drop_table_sql,
     )
 
