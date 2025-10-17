@@ -15,7 +15,7 @@ default_args = {
    'start_date': pendulum.datetime(2025, 1, 1, tz="UTC")
 ,
    'retries': 1,
-   'depends_on_past': True,
+   'depends_on_past': False,
 }
 
 
