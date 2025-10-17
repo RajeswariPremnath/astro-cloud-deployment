@@ -15,6 +15,7 @@ default_args = {
    'start_date': pendulum.datetime(2025, 1, 1, tz="UTC")
 ,
    'retries': 1,
+   'depends_on_past': True,
 }
 
 
@@ -26,7 +27,6 @@ dag = DAG(
    schedule=None, # Set to None for manual execution
    catchup=False,
    max_active_runs=1,
-   depends_on_past=True
 )
 
 
