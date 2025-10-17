@@ -32,7 +32,7 @@ dag = DAG(
 
 # AWS S3 connection details
 BUCKET_NAME = 'airflowbuckets25'
-OBJECT_KEY1 = 'daily_files/SUCCESS_20251017'
+OBJECT_KEY1 = '/SUCCESS_20251017'
 #LOCAL_FILE_PATH = '/usr/local/airflow/include/'
 
 wait_for_file1 = S3KeySensor(
