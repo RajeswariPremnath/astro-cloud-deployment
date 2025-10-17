@@ -56,12 +56,11 @@ wait_for_file2 = S3KeySensor(
 
 def create_success_file():
     s3_hook = S3Hook(aws_conn_id='aws_s3')
-    BUCKET_NAME = 'airflowbuckets25'
     success_file_key = 'SUCCESS_20251017'
     s3_hook.load_string(
         string_data='SUCCESS',
         key=success_file_key,
-        BUCKET_NAME=BUCKET_NAME,
+        bucket_name=BUCKET_NAME,
         replace=True,
     )
     logging.info(f"Created {success_file_key} in bucket {BUCKET_NAME}")
